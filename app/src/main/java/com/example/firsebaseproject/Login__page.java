@@ -3,6 +3,7 @@ package com.example.firsebaseproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,13 +37,15 @@ public class Login__page extends AppCompatActivity {
                 String email = Email.getText().toString().trim();
                 String passwordFeild = password.getText().toString().trim();
 
-
                 fAuth.signInWithEmailAndPassword(email, passwordFeild).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            Toast.makeText(Login__page.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-
+                            Intent intent = new Intent(Login__page.this, ResultPageActivity.class);
+                            Bundle b = new Bundle();
+                            b.putString("emailUser", email);
+                            intent.putExtras(b);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(Login__page.this, "Error !!!", Toast.LENGTH_SHORT).show();
                         }

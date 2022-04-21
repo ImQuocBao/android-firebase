@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirseBaseProject">
         <activity
+            android:name=".ResultPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".Register__page"
             android:exported="false" />
         <activity

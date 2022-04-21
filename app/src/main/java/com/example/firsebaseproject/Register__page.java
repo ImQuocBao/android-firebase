@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,10 +52,12 @@ public class Register__page extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
                                 Toast.makeText(Register__page.this, "create success" , Toast.LENGTH_SHORT).show();
+                                Log.d("task ", "onComplete: " + task);
+                                // Đăng Xuất
+                                //  FirebaseAuth.getInstance().signOut();
                             } else {
                                 Toast.makeText(Register__page.this, "create Fail" , Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
                 } else {
